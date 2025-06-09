@@ -1,32 +1,39 @@
 {
   "expo": {
-    "name": "new-body-mobile",
-    "slug": "new-body-mobile",
+    "name": "New Body",
+    "slug": "new-body",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./src/assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1e2ba3"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "com.seuusuario.newbody",
+      "versionCode": 1,
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+        "foregroundImage": "./src/assets/logo.png",
+        "backgroundColor": "#1e2ba3"
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/logo.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "77a9f066-6c2f-4675-b8b2-d285f907f410"
+      }
+    }
   }
 }
