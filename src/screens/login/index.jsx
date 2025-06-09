@@ -7,7 +7,7 @@ export default function Login({ navigation }) {
   const [pass, setPass] = useState("");
 
   const handleLogin = () => {
-    if (user === "admin" && pass === "admin") {
+    if (user === "leo" && pass === "123") {
       navigation.replace("Home");
     } else {
       Alert.alert("Erro", "Aluno ou senha inválidos");
