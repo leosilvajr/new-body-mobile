@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, Alert } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
 import styles from "./styles";
 
 export default function Register({ navigation }) {
@@ -23,7 +30,10 @@ export default function Register({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/logo_fundo_transparente.png')} style={styles.logo} />
+      <Image
+        source={require("../../assets/logo_fundo_transparente.png")}
+        style={styles.logo}
+      />
       <Text style={styles.academyName}>New Body</Text>
 
       <TextInput

@@ -12,9 +12,18 @@ export default StyleSheet.create({
   logo: {
     width: 200,
     height: 80,
-    marginBottom: 40,
     resizeMode: "contain",
+    marginBottom: 5, // era 40, reduza para 5 ou 0
   },
+
+  academyName: {
+    fontSize: 28,
+    color: COLORS.white,
+    fontFamily: "Montserrat_800ExtraBold",
+    marginBottom: 20,
+    marginTop: 0, // opcional: remove espaço do texto
+  },
+
   input: {
     backgroundColor: COLORS.white,
     width: "100%",
@@ -38,11 +47,4 @@ export default StyleSheet.create({
     color: COLORS.white,
     marginTop: 20,
   },
-  academyName: {
-    fontSize: 26,
-    color: COLORS.white,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  
 });
