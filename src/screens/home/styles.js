@@ -1,49 +1,72 @@
-import { StyleSheet } from "react-native";
-import { COLORS } from "../../constants/theme";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: COLORS.blue,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
+    padding: 16,
+    backgroundColor: '#f5f5f5',
   },
-  logo: {
-    width: 180,
-    height: 80,
-    resizeMode: "contain",
-    marginBottom: 10,
+  saudacao: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
-  academyName: {
-    fontSize: 28,
-    color: COLORS.white,
-    fontFamily: 'Montserrat_800ExtraBold',
-    marginBottom: 10,
+  secao: {
+    marginBottom: 32,
   },
-  welcome: {
-    fontSize: 20,
-    color: COLORS.white,
-    fontWeight: "600",
-    marginBottom: 10,
-    textAlign: "center",
+  tituloSecao: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 12,
   },
-  slogan: {
-    fontSize: 16,
-    color: COLORS.white,
-    marginBottom: 40,
-    textAlign: "center",
-    fontStyle: "italic",
+  calendario: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  button: {
-    backgroundColor: COLORS.red,
-    paddingVertical: 12,
-    paddingHorizontal: 40,
+  diaBox: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  diaFeito: {
+    backgroundColor: '#4CAF50',
+  },
+  diaNaoFeito: {
+    backgroundColor: '#ccc',
+  },
+  diaTexto: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  cardTreino: {
+    backgroundColor: '#fff',
     borderRadius: 8,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
   },
-  buttonText: {
-    color: COLORS.white,
-    fontWeight: "bold",
-    fontSize: 16,
+  nomeTreino: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  subinfoTreino: {
+    fontSize: 14,
+    color: '#555',
+    marginVertical: 8,
+  },
+  botaoVerMais: {
+    marginTop: 8,
+    paddingVertical: 8,
+    backgroundColor: '#4A90E2',
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  textoVerMais: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

@@ -8,11 +8,12 @@ export default function Login({ navigation }) {
 
   const handleLogin = () => {
     if (user === "leo" && pass === "123") {
-      navigation.replace("Home");
+      navigation.replace("MainTabs"); // carrega as tabs: Treino, Evolução, Perfil
     } else {
       Alert.alert("Erro", "Aluno ou senha inválidos");
     }
   };
+  
 
   return (
     <View style={styles.container}>
