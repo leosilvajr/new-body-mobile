@@ -6,11 +6,13 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 import styles from './styles';
 
 export default function TreinoScreen() {
   const [treinoConcluido, setTreinoConcluido] = useState(false);
   const [concluidos, setConcluidos] = useState({});
+  const [expandedGroups, setExpandedGroups] = useState([]);
 
   const treinos = [
     {
@@ -70,6 +72,14 @@ export default function TreinoScreen() {
     setConcluidos((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  const toggleGrupo = (index) => {
+    setExpandedGroups((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    );
+  };
+
   const concluirTreino = () => {
     setTreinoConcluido(true);
     Alert.alert('Parabéns!', 'Você concluiu o treino de hoje 💪');
@@ -82,39 +92,55 @@ export default function TreinoScreen() {
 
       {treinos.map((treino, grupoIndex) => (
         <View key={grupoIndex} style={styles.grupo}>
-          <Text style={styles.tituloGrupo}>{treino.titulo}</Text>
-          {treino.exercicios.map((ex, exIndex) => {
-            const key = `${grupoIndex}-${exIndex}`;
-            const concluido = concluidos[key];
+          <TouchableOpacity onPress={() => toggleGrupo(grupoIndex)}>
+            <View style={styles.grupoHeader}>
+              <Feather
+                name={
+                  expandedGroups.includes(grupoIndex)
+                    ? 'chevron-down'
+                    : 'chevron-right'
+                }
+                size={20}
+                color="#333"
+                style={{ marginRight: 8 }}
+              />
+              <Text style={styles.tituloGrupo}>{treino.titulo}</Text>
+            </View>
+          </TouchableOpacity>
 
-            return (
-              <TouchableOpacity
-                key={key}
-                style={[
-                  styles.exercicio,
-                  concluido && styles.exercicioConcluido,
-                ]}
-                onPress={() => toggleConcluido(grupoIndex, exIndex)}
-              >
-                <Text
+          {expandedGroups.includes(grupoIndex) &&
+            treino.exercicios.map((ex, exIndex) => {
+              const key = `${grupoIndex}-${exIndex}`;
+              const concluido = concluidos[key];
+
+              return (
+                <TouchableOpacity
+                  key={key}
                   style={[
-                    styles.nomeExercicio,
-                    concluido && styles.textoConcluido,
+                    styles.exercicio,
+                    concluido && styles.exercicioConcluido,
                   ]}
+                  onPress={() => toggleConcluido(grupoIndex, exIndex)}
                 >
-                  {ex.nome}
-                </Text>
-                <Text
-                  style={[
-                    styles.series,
-                    concluido && styles.textoConcluido,
-                  ]}
-                >
-                  {ex.series}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
+                  <Text
+                    style={[
+                      styles.nomeExercicio,
+                      concluido && styles.textoConcluido,
+                    ]}
+                  >
+                    {ex.nome}
+                  </Text>
+                  <Text
+                    style={[
+                      styles.series,
+                      concluido && styles.textoConcluido,
+                    ]}
+                  >
+                    {ex.series}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
         </View>
       ))}
 

@@ -1,71 +1,72 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#fff',
   },
   nomePlano: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 8,
     textAlign: 'center',
   },
   treinoHoje: {
     fontSize: 14,
-    color: '#666',
-    marginBottom: 20,
+    marginBottom: 16,
     textAlign: 'center',
   },
   grupo: {
-    marginBottom: 30,
+    marginBottom: 20,
+  },
+  grupoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
   },
   tituloGrupo: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    paddingBottom: 4,
   },
   exercicio: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f0f0f0',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 10,
-    elevation: 2,
-  },
-  exercicioConcluido: {
-    backgroundColor: '#d4edda',
+    marginVertical: 6,
   },
   nomeExercicio: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '500',
   },
   series: {
     fontSize: 14,
-    color: '#666',
+    color: '#555',
+  },
+  exercicioConcluido: {
+    backgroundColor: '#c5f7c5',
   },
   textoConcluido: {
-    color: '#2e7d32',
     textDecorationLine: 'line-through',
+    color: '#666',
   },
   botaoFinalizar: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 14,
+    backgroundColor: '#4caf50',
+    padding: 14,
     borderRadius: 8,
     alignItems: 'center',
-    marginBottom: 20,
+    marginTop: 20,
   },
   textoBotao: {
     color: '#fff',
-    fontWeight: 'bold',
     fontSize: 16,
+    fontWeight: 'bold',
   },
   mensagemConcluido: {
-    fontSize: 16,
-    color: '#4CAF50',
     textAlign: 'center',
-    fontWeight: 'bold',
+    color: 'green',
+    fontSize: 16,
+    marginTop: 20,
   },
 });
+
+export default styles;

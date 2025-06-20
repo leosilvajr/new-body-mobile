@@ -6,13 +6,18 @@ export default function Login({ navigation }) {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
+  // const handleLogin = () => {
+  //   if (user === "leo" && pass === "123") {
+  //     navigation.replace("MainTabs"); // carrega as tabs: Treino, Evolução, Perfil
+  //   } else {
+  //     Alert.alert("Erro", "Aluno ou senha inválidos");
+  //   }
+  // };
+
   const handleLogin = () => {
-    if (user === "leo" && pass === "123") {
-      navigation.replace("MainTabs"); // carrega as tabs: Treino, Evolução, Perfil
-    } else {
-      Alert.alert("Erro", "Aluno ou senha inválidos");
-    }
+      navigation.replace("MainTabs"); 
   };
+  
   
 
   return (
