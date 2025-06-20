@@ -1,69 +1,75 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
+import { COLORS, FONT_SIZE } from "../../constants/theme";
 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   nomePlano: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontWeight: "bold",
     marginBottom: 8,
-    textAlign: 'center',
+    textAlign: "center",
+    color: COLORS.blue,
   },
   treinoHoje: {
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 16,
-    textAlign: 'center',
+    textAlign: "center",
+    color: "#555",
   },
   grupo: {
     marginBottom: 20,
   },
   grupoHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     paddingVertical: 8,
   },
   tituloGrupo: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.blue,
+    textTransform: "uppercase",
+    letterSpacing: 0,
   },
   exercicio: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
     padding: 12,
     borderRadius: 8,
     marginVertical: 6,
   },
   nomeExercicio: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   series: {
     fontSize: 14,
-    color: '#555',
+    color: "#555",
   },
   exercicioConcluido: {
-    backgroundColor: '#c5f7c5',
+    backgroundColor: "#c5f7c5",
   },
   textoConcluido: {
-    textDecorationLine: 'line-through',
-    color: '#666',
+    textDecorationLine: "line-through",
+    color: "#666",
   },
   botaoFinalizar: {
-    backgroundColor: '#4caf50',
+    backgroundColor: "#4caf50",
     padding: 14,
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 20,
   },
   textoBotao: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   mensagemConcluido: {
-    textAlign: 'center',
-    color: 'green',
+    textAlign: "center",
+    color: "green",
     fontSize: 16,
     marginTop: 20,
   },
@@ -71,12 +77,12 @@ const styles = StyleSheet.create({
     marginTop: 6,
     padding: 8,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 6,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     fontSize: 14,
-    color: '#333',
-  },  
+    color: "#333",
+  },
 });
 
 export default styles;

@@ -6,9 +6,11 @@ import {
   TouchableOpacity,
   Alert,
   TextInput,
+  Animated,
 } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import styles from "./styles";
+import { COLORS } from "../../constants/theme";
 
 export default function TreinoScreen() {
   const [treinoConcluido, setTreinoConcluido] = useState(false);
@@ -23,7 +25,7 @@ export default function TreinoScreen() {
 
   const treinos = [
     {
-      titulo: "Peito e Ombro",
+      titulo: "A - Peito e Ombro",
       exercicios: [
         { nome: "Flexões", series: "5x10" },
         { nome: "Supino Reto", series: "5x10" },
@@ -36,7 +38,7 @@ export default function TreinoScreen() {
       ],
     },
     {
-      titulo: "Braços (Bíceps e Tríceps)",
+      titulo: "B - Braços (Bíceps e Tríceps)",
       exercicios: [
         { nome: "Rosca Direta (Barra H)", series: "4x10" },
         { nome: "Rosca Concentrada", series: "4x10" },
@@ -49,7 +51,7 @@ export default function TreinoScreen() {
       ],
     },
     {
-      titulo: "Pernas e Glúteos",
+      titulo: "C - Pernas e Glúteos",
       exercicios: [
         { nome: "Hack", series: "4x10" },
         { nome: "Afundo (Barra Guiada)", series: "4x10" },
@@ -62,7 +64,7 @@ export default function TreinoScreen() {
       ],
     },
     {
-      titulo: "Costas e Trapézio",
+      titulo: "D - Costas e Trapézio",
       exercicios: [
         { nome: "Remada Cavalinho", series: "4x10" },
         { nome: "Puxada Alta Pronada Aberta", series: "4x10" },
@@ -106,7 +108,7 @@ export default function TreinoScreen() {
                     : "chevron-right"
                 }
                 size={20}
-                color="#333"
+                color={COLORS.blue}
                 style={{ marginRight: 8 }}
               />
               <Text style={styles.tituloGrupo}>{treino.titulo}</Text>
@@ -119,39 +121,43 @@ export default function TreinoScreen() {
               const concluido = concluidos[key];
 
               return (
-                <TouchableOpacity
-                  key={key}
-                  style={[
-                    styles.exercicio,
-                    concluido && styles.exercicioConcluido,
-                  ]}
-                  onPress={() => toggleConcluido(grupoIndex, exIndex)}
-                >
-                  <Text
+                <Animated.View key={key}>
+                  <TouchableOpacity
                     style={[
-                      styles.nomeExercicio,
-                      concluido && styles.textoConcluido,
+                      styles.exercicio,
+                      concluido && styles.exercicioConcluido,
                     ]}
+                    onPress={() => toggleConcluido(grupoIndex, exIndex)}
                   >
-                    {ex.nome}
-                  </Text>
-                  <Text
-                    style={[styles.series, concluido && styles.textoConcluido]}
-                  >
-                    {ex.series}
-                  </Text>
+                    <Text
+                      style={[
+                        styles.nomeExercicio,
+                        concluido && styles.textoConcluido,
+                      ]}
+                    >
+                      {ex.nome}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.series,
+                        concluido && styles.textoConcluido,
+                      ]}
+                    >
+                      {ex.series}
+                    </Text>
 
-                  <TextInput
-                    style={styles.inputPeso}
-                    placeholder="Carga (kg)"
-                    placeholderTextColor="#999"
-                    keyboardType="numeric"
-                    value={pesos[key] || ""}
-                    onChangeText={(valor) =>
-                      atualizarPeso(grupoIndex, exIndex, valor)
-                    }
-                  />
-                </TouchableOpacity>
+                    <TextInput
+                      style={styles.inputPeso}
+                      placeholder="Carga (kg)"
+                      placeholderTextColor="#999"
+                      keyboardType="numeric"
+                      value={pesos[key] || ""}
+                      onChangeText={(valor) =>
+                        atualizarPeso(grupoIndex, exIndex, valor)
+                      }
+                    />
+                  </TouchableOpacity>
+                </Animated.View>
               );
             })}
         </View>
