@@ -1,5 +1,13 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+} from 'react-native';
+
 import styles from './styles';
 
 const treinoPeitoOmbro = [
@@ -15,22 +23,24 @@ const treinoPeitoOmbro = [
 
 export default function TreinoDetalhadoScreen({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.titulo}>Treino de Peito e Ombro</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.titulo}>Treino de Peito e Ombro</Text>
 
-      {treinoPeitoOmbro.map((ex, index) => (
-        <View key={index} style={styles.exercicio}>
-          <Text style={styles.nome}>{ex.nome}</Text>
-          <Text style={styles.series}>{ex.series}</Text>
-        </View>
-      ))}
+        {treinoPeitoOmbro.map((ex, index) => (
+          <View key={index} style={styles.exercicio}>
+            <Text style={styles.nome}>{ex.nome}</Text>
+            <Text style={styles.series}>{ex.series}</Text>
+          </View>
+        ))}
 
-      <TouchableOpacity
-        style={styles.botaoVoltar}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.textoBotao}>Voltar</Text>
-      </TouchableOpacity>
-    </ScrollView>
+        <TouchableOpacity
+          style={styles.botaoVoltar}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.textoBotao}>Voltar</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

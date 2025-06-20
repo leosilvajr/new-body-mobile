@@ -67,6 +67,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 20,
   },
+  inputPeso: {
+    marginTop: 6,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 6,
+    backgroundColor: '#fff',
+    fontSize: 14,
+    color: '#333',
+  },  
 });
 
 export default styles;
