@@ -1,41 +1,39 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, Alert } from "react-native";
 import styles from "./styles";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Login({ navigation }) {
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [senha, setSenha] = useState("");
+  const { login } = useAuth();
 
-  // const handleLogin = () => {
-  //   if (user === "leo" && pass === "123") {
-  //     navigation.replace("MainTabs"); // carrega as tabs: Treino, Evolução, Perfil
-  //   } else {
-  //     Alert.alert("Erro", "Aluno ou senha inválidos");
-  //   }
-  // };
-
-  const handleLogin = () => {
-      navigation.replace("MainTabs"); 
+  const handleLogin = async () => {
+    const success = await login(cpf, senha);
+    if (success) {
+      navigation.replace("MainTabs");
+    } else {
+      Alert.alert("Erro", "CPF ou senha inválidos");
+    }
   };
   
-  
-
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/logo_fundo_transparente.png')} style={styles.logo} />
-      <Text style={styles.academyName}>New Body</Text>
+      <Text style={styles.academyName}>Power Gym</Text>
 
       <TextInput
-        placeholder="Aluno"
-        value={user}
-        onChangeText={setUser}
+        placeholder="CPF"
+        value={cpf}
+        onChangeText={setCpf}
         style={styles.input}
+        keyboardType="numeric"
       />
       <TextInput
         placeholder="Senha"
         secureTextEntry
-        value={pass}
-        onChangeText={setPass}
+        value={senha}
+        onChangeText={setSenha}
         style={styles.input}
       />
 

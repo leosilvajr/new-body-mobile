@@ -10,8 +10,8 @@ export default StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 200,
-    height: 80,
+    width: 400,
+    height: 160,
     resizeMode: "contain",
     marginBottom: 5, // era 40, reduza para 5 ou 0
   },
